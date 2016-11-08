@@ -40,21 +40,23 @@ exports.webhook = function(request, response) {
         if (msg === 'yes' || msg === 'no') {
             // If the user has elected to subscribe for messages, flip the bit
             // and indicate that they have done so.
-            subscriber.learnt = msg === 'yes';
+            subscriber.learnt = msg
             subscriber.save(function(err) {
                 if (err)
                     return respond('oops something went wrong');
 
                 // Otherwise, our subscription has been updated
-                var responseMessage = 'Yayyy...';
-                if (!subscriber.subscribed)
-                    responseMessage = 'I blame you';
+                if(msg == 'yes'){
+                    var responseMessage = 'Yayyy...';
+                } else {
+                    var responseMessage = 'I blame you';
+                }
 
                 respond(responseMessage);
             });
         } else {
 
-            var responseMessage = 'I only understand "yes" or "no" dude';
+            var responseMessage = 'I only understand "yes" or "no" :|';
 
             respond(responseMessage);
         }
