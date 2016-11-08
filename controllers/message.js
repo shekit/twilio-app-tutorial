@@ -23,7 +23,7 @@ exports.webhook = function(request, response) {
                     return respond('We couldn\'t sign you up - try again.');
 
                 
-                respond('Welcome to the web app class. Learnt anything yet? Reply "yes" or "no"');
+                respond('You\'re in the web app class, just a few more sessions left! Learnt anything yet? Reply "yes" or "no"');
             });
         } else {
 
